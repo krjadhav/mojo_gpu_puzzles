@@ -1,0 +1,108 @@
+name: 🐛 Bug Report
+description: File a bug report for Mojo GPU Puzzles
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+        Before submitting, please check:
+        - If a similar issue already exists
+        - Your GPU meets the [minimum requirements](https://docs.modular.com/max/faq#gpu-requirements)
+
+  - type: input
+    id: uv-or-pixi-version
+    attributes:
+      label: uv/pixi CLI Version
+      description: Run `uv --version` or `pixi --version`
+      placeholder: "e.g., 0.47.0"
+    validations:
+      required: true
+
+  - type: input
+    id: mojo-version
+    attributes:
+      label: Mojo Version
+      description: Run `uv run mojo --version` or `pixi run mojo --version`
+      placeholder: "e.g., 25.3.0"
+    validations:
+      required: true
+
+  - type: input
+    id: gpu-info
+    attributes:
+      label: GPU Information
+      description: What GPU are you using? Include model and compute capability if known
+      placeholder: "e.g., NVIDIA A100 (Compute 8.0)"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      placeholder: "e.g., Ubuntu Linux"
+    validations:
+      required: true
+
+  - type: input
+    id: puzzle
+    attributes:
+      label: Related Puzzle
+      description: Which puzzle does this bug relate to?
+      placeholder: "e.g., Puzzle 1: Map"
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug and what you expected to happen
+      placeholder: |
+        1. What were you trying to do?
+        2. What actually happened?
+        3. What did you expected to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to puzzle X
+        2. Modify code to...
+        3. Run with command...
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: Please copy and paste any relevant log output or error messages
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

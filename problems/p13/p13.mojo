@@ -56,27 +56,7 @@ def conv_1d_block_boundary(
     var local_i = thread_idx.x
     # FILL ME IN (roughly 18 lines)
     # Allocate shared memory
-    var shared_a = stack_allocation[
-        dtype=dtype, address_space=AddressSpace.SHARED
-    ](row_major[SIZE]())
-    var shared_b = stack_allocation[
-        dtype=dtype, address_space=AddressSpace.SHARED
-    ](row_major[CONV]())
 
-    if global_i < SIZE:
-        shared_a[local_i] = a[global_i]
-    if global_i < CONV:
-        shared_b[local_i] = b[global_i]
-
-    # Synchronize threads within block
-    barrier()
-
-    local_sum = Scalar[dtype](0)
-    for j in range(CONV):
-        if local_i + j < SIZE:
-            local_sum += shared_a[local_i + j] * shared_b[j]
-    if global_i < SIZE:
-        out[global_i] = local_sum
     
 
 
